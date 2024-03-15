@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserCard = () => {
   return (
-    <div className="w-64 rounded overflow-hidden shadow-lg bg-white">
+    <div className="w-64 rounded overflow-hidden">
       <div className="flex items-center px-4 py-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
