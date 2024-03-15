@@ -2,15 +2,18 @@ import React from 'react';
 
 const UserCard = () => {
   return (
-    <div className="w-64 rounded overflow-hidden">
-      <div className="flex items-center px-4 py-2">
+    <div
+      className="w-56
+     rounded overflow-hidden"
+    >
+      <div className="flex items-center py-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-10 h-10 ml-2 mr-5"
+          className="w-10 h-10 mr-5"
         >
           <path
             strokeLinecap="round"
