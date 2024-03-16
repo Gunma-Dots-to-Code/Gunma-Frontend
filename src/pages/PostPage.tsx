@@ -6,7 +6,7 @@ const PostPage = () => {
   const [content, setContent] = useState('');
 
   // フォームの送信処理
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     // フォームの入力値を使用して投稿の作成処理を実装する
     console.log('Title:', title);

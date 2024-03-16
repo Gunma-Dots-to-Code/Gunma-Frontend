@@ -14,14 +14,14 @@ const Header = () => {
           {' '}
           アプリ名{' '}
         </a>
-        <button className="rounded-lg md:hidden focus:outline-none focus:shadow-outline" onClick={() => {}}>
+        {/* <button className="rounded-lg md:hidden focus:outline-none focus:shadow-outline" onClick={() => {}}>
           <svg fill="currentColor" viewBox="0 0 20 20" className="w-8 h-8">
             <path
               fillRule="evenodd"
               d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
             ></path>
           </svg>
-        </button>
+        </button> */}
       </div>
 
       <nav className="flex-col items-center flex-grow hidden pb-4 border-blue-600 md:pb-0 md:flex md:justify-end md:flex-row lg:border-l-2 lg:pl-2">

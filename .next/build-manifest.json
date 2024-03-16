@@ -22,10 +22,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/question/[id]": [
+    "/answer/[id]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/question/[id].js"
+      "static/chunks/pages/answer/[id].js"
+    ],
+    "/question": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/question.js"
     ]
   },
   "ampFirstPages": []
