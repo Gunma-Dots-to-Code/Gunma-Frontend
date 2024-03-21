@@ -30,7 +30,10 @@ const CategoriesPage: React.FC<CategoryQuestionsProps> = ({
 
 export const getServerSideProps: GetServerSideProps = async () => {
 	try {
-		const response = await fetch("http://localhost:8080/questions");
+		const response = await fetch(
+			// TODO: カテゴリーIDをパスから取得する
+			"http://localhost:8080/categories/1/questions"
+		);
 		if (!response.ok) {
 			throw new Error("Failed to fetch");
 		}

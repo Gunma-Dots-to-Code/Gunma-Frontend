@@ -17,7 +17,7 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 						type="button"
 						className="bg-[#448cea] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 					>
-						質問を作成する
+						質問する
 					</button>
 				</Link>
 			</div>
@@ -25,7 +25,7 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 				{categories.map((category) => (
 					<li
 						key={category.ID}
-						className="font-bold border px-6 py-4 rounded-md hover:bg-gray-100 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg"
+						className="font-bold border px-6 py-4 rounded-md hover:bg-gray-100 transition duration-100 transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg"
 					>
 						<Link href={`/category/${category.ID}`}>
 							{category.CategoryName}
@@ -37,7 +37,6 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 	);
 };
 
-// getServerSideProps関数
 export const getServerSideProps: GetServerSideProps = async () => {
 	try {
 		const response = await fetch("http://localhost:8080/categories");
@@ -46,10 +45,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 		}
 		const categories: Category[] = await response.json();
 
-		// Propsとしてページコンポーネントにカテゴリーを渡す
 		return { props: { categories } };
 	} catch (error: any) {
-		// エラーが発生した場合は、errorプロパティをpropsとして渡す
 		return { props: { categories: [], error: error.message } };
 	}
 };

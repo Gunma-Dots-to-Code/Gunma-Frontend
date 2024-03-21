@@ -39,3 +39,16 @@ type CategoryQuestionsProps = {
 	questions: Question[];
 	error?: string;
 };
+
+// answer
+type Answer = {
+	ID: number;
+	CreatedAt: string;
+	UpdatedAt: string;
+	DeletedAt: string;
+	UserID: number;
+	QuestionID: number;
+	AnswerContent: string;
+	User: User;
+	Question: Question;
+};
