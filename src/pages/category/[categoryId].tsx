@@ -3,7 +3,6 @@ import { GetServerSideProps } from "next";
 import Link from "next/link";
 import React from "react";
 
-// fetch data from the server
 const CategoriesPage: React.FC<CategoryQuestionsProps> = ({
 	questions,
 	error,
@@ -29,7 +28,6 @@ const CategoriesPage: React.FC<CategoryQuestionsProps> = ({
 	);
 };
 
-// getServerSideProps関数
 export const getServerSideProps: GetServerSideProps = async () => {
 	try {
 		const response = await fetch("http://localhost:8080/questions");
