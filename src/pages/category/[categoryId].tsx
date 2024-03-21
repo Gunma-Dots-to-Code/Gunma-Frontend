@@ -36,10 +36,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 		}
 		const questions: Question[] = await response.json();
 
-		// Propsとしてページコンポーネントにカテゴリーを渡す
 		return { props: { questions } };
 	} catch (error: any) {
-		// エラーが発生した場合は、errorプロパティをpropsとして渡す
 		return { props: { questions: [], error: error.message } };
 	}
 };
