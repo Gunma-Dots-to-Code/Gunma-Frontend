@@ -8,14 +8,14 @@ const Header = () => {
 		>
 			<div className="flex flex-row items-center justify-between lg:justify-start">
 				<a
-					className="text-lg font-bold tracking-tighter text-blue-600 transition duration-500 ease-in-out transform tracking-relaxed lg:pr-8"
+					className="text-lg font-bold tracking-tighter text-[#448cea] transition duration-500 ease-in-out transform tracking-relaxed lg:pr-8"
 					href="/"
 				>
 					Brain Share
 				</a>
 			</div>
 
-			<nav className="flex-col items-center flex-grow hidden pb-4 border-blue-600 md:pb-0 md:flex md:justify-end md:flex-row lg:border-l-2 lg:pl-2">
+			<nav className="flex-col items-center flex-grow hidden pb-4 border-[#448cea] md:pb-0 md:flex md:justify-end md:flex-row lg:border-l-2 lg:pl-2">
 				<div
 					onClick={() => {}}
 					className="relative"

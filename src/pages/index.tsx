@@ -11,25 +11,28 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 
 	return (
 		<Layout>
+			<div className="flex items-center justify-center my-20">
+				<Link href="/question">
+					<button
+						type="button"
+						className="bg-[#448cea] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+					>
+						質問を作成する
+					</button>
+				</Link>
+			</div>
 			<ul className="grid grid-cols-2 gap-7">
 				{categories.map((category) => (
-					<li key={category.ID}>
+					<li
+						key={category.ID}
+						className="font-bold border px-6 py-4 rounded-md hover:bg-gray-100 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg"
+					>
 						<Link href={`/category/${category.ID}`}>
 							{category.CategoryName}
 						</Link>
 					</li>
 				))}
 			</ul>
-			<div className="flex items-center justify-center mt-20">
-				<Link href="/question">
-					<button
-						type="button"
-						className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-					>
-						質問を作成する
-					</button>
-				</Link>
-			</div>
 		</Layout>
 	);
 };
