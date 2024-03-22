@@ -1,3 +1,5 @@
+import QuestionButton from "./QuestionButton";
+
 const BaseInput: React.FC<{}> = ({}) => {
 	return (
 		<form className="max-w-md mx-auto">

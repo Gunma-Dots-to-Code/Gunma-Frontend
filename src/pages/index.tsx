@@ -53,10 +53,10 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 	return (
 		<div className="flex flex-col h-screen justify-between mb-auto">
 			<Header />
-			<div className="bg-white pt-5 border-b">
+			<div className="bg-white pt-5">
 				<div className="max-w-2xl mx-auto">
 					<BaseTitle title="❓ よくある質問" />
-					<div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-7">
+					<div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-5">
 						{PopularQuestionDummyData.map((question) => (
 							<QuestionItem
 								questionID={question.questionID}
@@ -68,11 +68,9 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 					</div>
 				</div>
 			</div>
-			<div className="flex items-center justify-center my-7">
-				<div className="">
-					<QuestionButton />
-				</div>
-			</div>
+			{/* <div className="flex items-center justify-center my-5">
+				<div className=""></div>
+			</div> */}
 			<div className="bg-blue-50 py-6">
 				<div className="max-w-2xl mx-auto">
 					<BaseTitle title="🧩 カテゴリー選択" />
