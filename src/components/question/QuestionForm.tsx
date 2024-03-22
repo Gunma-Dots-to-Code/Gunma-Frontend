@@ -116,7 +116,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ categoryList }) => {
             className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none "
           ></textarea>
         </div>
-        <div>
+        <div className="mb-10">
           <label
             htmlFor="category"
             className="block text-gray-700 text-base font-bold mb-2 flex items-end"
@@ -132,9 +132,9 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ categoryList }) => {
             value={input.categoryId}
             onChange={handleInputChange}
             required
-            className="border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-20"
+            className="border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           >
-            <option value="" className="bg-gray-700" disabled>
+            <option value="" disabled>
               カテゴリーを選択してください
             </option>
             {categoryList.map((category) => (
@@ -144,16 +144,37 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ categoryList }) => {
             ))}
           </select>
         </div>
-        <div className="mb-20">
-          <label htmlFor="notify">回答がついたらメールで知らせる</label>
-          {/* TODO：トグルボタンのデザインを修正する */}
-          <input
-            type="checkbox"
-            id="notify"
-            name="notify"
-            checked={input.notify}
-            onChange={handleToggleChange}
-          />
+        <div className="mb-10">
+          <div className="flex items-center justify-start mb-4">
+            <div className="text-gray-700 font-medium mr-3">
+              回答がついたらメールで知らせる
+            </div>
+            <label
+              htmlFor="notify"
+              className="flex items-center cursor-pointer"
+            >
+              <div className="relative">
+                <input
+                  type="checkbox"
+                  id="notify"
+                  name="notify"
+                  checked={input.notify}
+                  onChange={handleToggleChange}
+                  className="sr-only" // チェックボックスを画面上から隠します。
+                />
+                <div
+                  className={`block w-10 h-5 ${
+                    input.notify ? "bg-blue-500" : "bg-gray-600"
+                  } rounded-full`}
+                ></div>
+                <div
+                  className={`dot absolute left-0.5 top-0.5 bg-white w-4 h-4 rounded-full transition-transform ${
+                    input.notify ? "transform translate-x-5" : ""
+                  }`}
+                ></div>
+              </div>
+            </label>
+          </div>
           {input.notify && (
             <input
               className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline block"
@@ -166,6 +187,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ categoryList }) => {
             />
           )}
         </div>
+
         <div className="flex items-center justify-center">
           <button
             type="submit"
