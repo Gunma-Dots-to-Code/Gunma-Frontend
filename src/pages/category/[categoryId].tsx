@@ -2,7 +2,6 @@ import BaseTitle from "@/components/common/BaseTitle";
 import Layout from "@/components/common/Layout";
 import QuestionItem from "@/components/common/QuestionItem";
 import { GetServerSideProps } from "next";
-import Link from "next/link";
 import React from "react";
 
 const CategoriesPage: React.FC<CategoryQuestionsProps> = ({
@@ -25,6 +24,7 @@ const CategoriesPage: React.FC<CategoryQuestionsProps> = ({
 				<ul className="grid gap-5 grid-cols-1 mt-16">
 					{questions.map((question) => (
 						<QuestionItem
+							key={question.ID}
 							questionID={question.ID}
 							questionTitle={question.QuestionTitle}
 							questionContent={question.QuestionContent}

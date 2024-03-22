@@ -84,7 +84,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ categoryList }) => {
 						value={input.title}
 						onChange={handleInputChange}
 						required
-						minLength={20}
+						minLength={5}
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 					/>
 				</div>
