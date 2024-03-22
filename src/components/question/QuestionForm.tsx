@@ -36,6 +36,12 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ categoryList }) => {
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
+
+		if (!input.categoryId) {
+			alert("カテゴリを選択してください。");
+			return;
+		}
+
 		try {
 			const response = await fetch(
 				`http://localhost:8080/categories/${input.categoryId}/questions`,
@@ -53,10 +59,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ categoryList }) => {
 			);
 			const data = await response.json();
 			console.log(data);
-			// レスポンスからquestionIdを取得
-			// TODO: バックエンドが追記したらコメントアウトを外す
-			const questionId = 1;
-			// const questionId = data.QuestionId;
+			const questionId = data.ID;
 			// ページにリダイレクト
 			router.push(`/category/${input.categoryId}/question/${questionId}`);
 		} catch (error) {
@@ -84,7 +87,7 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ categoryList }) => {
 						value={input.title}
 						onChange={handleInputChange}
 						required
-						minLength={20}
+						minLength={5}
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 					/>
 				</div>
@@ -120,6 +123,9 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ categoryList }) => {
 						required
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-20"
 					>
+						<option value="" className="bg-gray-700" disabled>
+							カテゴリーを選択してください
+						</option>
 						{categoryList.map((category) => (
 							<option key={category.ID} value={category.ID}>
 								{category.CategoryName}
