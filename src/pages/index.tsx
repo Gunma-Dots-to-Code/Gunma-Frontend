@@ -1,4 +1,5 @@
 import BaseTitle from "@/components/common/BaseTitle";
+import Header from "@/components/common/Header";
 import Layout from "@/components/common/Layout";
 import QuestionButton from "@/components/common/QuestionButton";
 import QuestionItem, {
@@ -51,38 +52,49 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 	}
 
 	return (
-		<Layout>
-			<div className="my-5 border-b">
-				<BaseTitle title="❓ よくある質問" />
-				<div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-10">
-					{PopularQuestionDummyData.map((question) => (
-						<QuestionItem
-							questionID={question.questionID}
-							questionTitle={question.questionTitle}
-							questionContent={question.questionContent}
-							categoryID={question.categoryID}
-						/>
-					))}
+		<div className="flex flex-col h-screen justify-between mb-auto">
+			<Header />
+			<div className="bg-white pt-5">
+				<div className="max-w-2xl mx-auto">
+					<BaseTitle title="❓ よくある質問" />
+					<div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-10">
+						{PopularQuestionDummyData.map((question) => (
+							<QuestionItem
+								questionID={question.questionID}
+								questionTitle={question.questionTitle}
+								questionContent={question.questionContent}
+								categoryID={question.categoryID}
+							/>
+						))}
+					</div>
 				</div>
 			</div>
-
-			<BaseTitle title="🧩 カテゴリー選択" />
-			<ul className="grid grid-cols-2 gap-5 mb-10 mt-4">
-				{categories.map((category) => (
-					<Link href={`/category/${category.ID}`} key={category.ID}>
-						<li
-							key={category.ID}
-							className="font-bold border px-6 py-4 rounded-md hover:bg-gray-100 transition duration-100 transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg"
-						>
-							{category.CategoryName}
-						</li>
-					</Link>
-				))}
-			</ul>
-			<div className="flex items-center justify-center my-10">
-				<QuestionButton />
+			<div className="bg-blue-50 py-6">
+				<div className="max-w-2xl mx-auto">
+					<BaseTitle title="🧩 カテゴリー選択" />
+					<ul className="grid grid-cols-2 gap-4 mb-10 mt-4">
+						{categories.map((category) => (
+							<Link
+								href={`/category/${category.ID}`}
+								key={category.ID}
+							>
+								<li
+									key={category.ID}
+									className="font-bold border px-6 py-4 rounded-md hover:bg-gray-100 transition duration-100 transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg bg-white"
+								>
+									{category.CategoryName}
+								</li>
+							</Link>
+						))}
+					</ul>
+				</div>
 			</div>
-		</Layout>
+			<div className="flex items-center justify-center my-10">
+				<div className="mb-10">
+					<QuestionButton />
+				</div>
+			</div>
+		</div>
 	);
 };
 
