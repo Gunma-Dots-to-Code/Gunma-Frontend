@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 const config: Config = {
 	content: [
@@ -15,6 +16,9 @@ const config: Config = {
 			},
 			colors: {
 				primaryBlue: "#448cea",
+			},
+			fontFamily: {
+				sans: ["var(--font-noto)", ...defaultTheme.fontFamily.sans],
 			},
 		},
 	},

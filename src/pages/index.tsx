@@ -1,5 +1,6 @@
 import BaseTitle from "@/components/common/BaseTitle";
 import Layout from "@/components/common/Layout";
+import QuestionButton from "@/components/common/QuestionButton";
 import QuestionItem, {
 	QuestionItemProps,
 } from "@/components/common/QuestionItem";
@@ -53,7 +54,7 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 		<Layout>
 			{/* よくある質問 */}
 			<BaseTitle title="よくある質問" />
-			<div className="grid grid-cols-2 gap-x-4 gap-y-3">
+			<div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-10">
 				{PopularQuestionDummyData.map((question) => (
 					<QuestionItem
 						questionID={question.questionID}
@@ -63,16 +64,7 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 					/>
 				))}
 			</div>
-			<div className="flex items-center justify-center my-10">
-				<Link href="/question">
-					<button
-						type="button"
-						className="bg-[#448cea] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-					>
-						質問する
-					</button>
-				</Link>
-			</div>
+
 			<BaseTitle title="カテゴリー" />
 			<ul className="grid grid-cols-2 gap-7 mb-20">
 				{categories.map((category) => (
@@ -86,6 +78,9 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 					</Link>
 				))}
 			</ul>
+			<div className="flex items-center justify-center my-10">
+				<QuestionButton />
+			</div>
 		</Layout>
 	);
 };
