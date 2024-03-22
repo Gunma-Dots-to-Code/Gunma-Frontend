@@ -74,18 +74,18 @@ const CreateAnswerModal: React.FC<CreateAnswerModalProps> = ({
             <h2 className="text-md font-semibold">質問内容</h2>
             <h2 className="text-lg font-semibold mt-3">{questionTitle}</h2>
             <div>
-              <p className="mt-4 text-gray-800">
-                {contentExpanded
-                  ? questionContent
-                  : `${questionContent.substring(0, maxContentLength)}...`}
-              </p>
+              <span className="mt-4 text-gray-800">
+                {questionContent.length > maxContentLength && !contentExpanded
+                  ? `${questionContent.substring(0, maxContentLength)}... `
+                  : questionContent}
+              </span>
               {questionContent.length > maxContentLength && (
-                <button
+                <span
                   onClick={toggleContent}
-                  className="text-blue-600 hover:text-blue-800 text-sm"
+                  className="text-blue-600 hover:text-blue-800 text-sm cursor-pointer"
                 >
                   {contentExpanded ? "折りたたむ" : "続きを読む"}
-                </button>
+                </span>
               )}
             </div>
           </div>
