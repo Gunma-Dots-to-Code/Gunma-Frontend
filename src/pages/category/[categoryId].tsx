@@ -1,8 +1,8 @@
 import BaseTitle from "@/components/common/BaseTitle";
 import Layout from "@/components/common/Layout";
+import QuestionItem from "@/components/common/QuestionItem";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
 
 const CategoriesPage: React.FC<CategoryQuestionsProps> = ({
@@ -24,27 +24,12 @@ const CategoriesPage: React.FC<CategoryQuestionsProps> = ({
 			) : (
 				<ul className="grid gap-5 grid-cols-1 mt-16">
 					{questions.map((question) => (
-						<li
-							key={question.ID}
-							className="truncate border px-5 py-5 rounded-md hover:bg-gray-100 transition duration-100 transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg"
-						>
-							<Link
-								href={`/category/${question.CategoryID}/question/${question.ID}`}
-								className="block hover:underline"
-							>
-								<h3 className="text-lg font-semibold">
-									{question.QuestionTitle}
-								</h3>
-								<p className="text-gray-500 text-sm truncate">
-									{question.QuestionContent.length > 40
-										? `${question.QuestionContent.substring(
-												0,
-												40
-										  )}...`
-										: question.QuestionContent}
-								</p>
-							</Link>
-						</li>
+						<QuestionItem
+							questionID={question.ID}
+							questionTitle={question.QuestionTitle}
+							questionContent={question.QuestionContent}
+							categoryID={question.CategoryID}
+						/>
 					))}
 				</ul>
 			)}

@@ -1,17 +1,69 @@
+import BaseTitle from "@/components/common/BaseTitle";
 import Layout from "@/components/common/Layout";
+import QuestionItem, {
+	QuestionItemProps,
+} from "@/components/common/QuestionItem";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import React from "react";
 
-// fetch data from the server
 const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
+	const PopularQuestionDummyData: QuestionItemProps[] = [
+		{
+			questionID: 1,
+			questionTitle: "キャンペーンの作成方法について",
+			questionContent:
+				"期間限定のキャンペーンを作成したいのですが、管理画面からどのように設定できますか？",
+			categoryID: 1,
+		},
+		{
+			questionID: 2,
+			questionTitle: "在庫の確認方法について",
+			questionContent:
+				"作成した商品の在庫を確認する方法を教えてください。",
+			categoryID: 1,
+		},
+		{
+			questionID: 3,
+			questionTitle: "現在契約中のプランの確認方法",
+			questionContent:
+				"契約したプランを確認したいのですが、管理画面のどのページから確認できるでしょうか？また、プランを変更するにはどこにアクセスすればよいでしょうか？",
+			categoryID: 2,
+		},
+		{
+			questionID: 4,
+			questionTitle: "請求書の確認方法について",
+			questionContent:
+				"請求書の確認方法を教えてください。また、請求書のダウンロード方法についても教えていただけますか？",
+			categoryID: 2,
+		},
+		{
+			questionID: 5,
+			questionTitle: "商品の登録方法について",
+			questionContent: "商品の登録方法を教えてください。",
+			categoryID: 3,
+		},
+	];
+
 	if (error) {
 		return <div>Error: {error}</div>;
 	}
 
 	return (
 		<Layout>
-			<div className="flex items-center justify-center my-20">
+			{/* よくある質問 */}
+			<BaseTitle title="よくある質問" />
+			<div className="grid grid-cols-2 gap-x-4 gap-y-3">
+				{PopularQuestionDummyData.map((question) => (
+					<QuestionItem
+						questionID={question.questionID}
+						questionTitle={question.questionTitle}
+						questionContent={question.questionContent}
+						categoryID={question.categoryID}
+					/>
+				))}
+			</div>
+			<div className="flex items-center justify-center my-10">
 				<Link href="/question">
 					<button
 						type="button"
@@ -21,7 +73,8 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 					</button>
 				</Link>
 			</div>
-			<ul className="grid grid-cols-2 gap-7">
+			<BaseTitle title="カテゴリー" />
+			<ul className="grid grid-cols-2 gap-7 mb-20">
 				{categories.map((category) => (
 					<Link href={`/category/${category.ID}`} key={category.ID}>
 						<li
