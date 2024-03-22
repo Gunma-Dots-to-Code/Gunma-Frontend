@@ -52,21 +52,22 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 
 	return (
 		<Layout>
-			{/* よくある質問 */}
-			<BaseTitle title="よくある質問" />
-			<div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-10">
-				{PopularQuestionDummyData.map((question) => (
-					<QuestionItem
-						questionID={question.questionID}
-						questionTitle={question.questionTitle}
-						questionContent={question.questionContent}
-						categoryID={question.categoryID}
-					/>
-				))}
+			<div className="my-5 border-b">
+				<BaseTitle title="❓ よくある質問" />
+				<div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-10">
+					{PopularQuestionDummyData.map((question) => (
+						<QuestionItem
+							questionID={question.questionID}
+							questionTitle={question.questionTitle}
+							questionContent={question.questionContent}
+							categoryID={question.categoryID}
+						/>
+					))}
+				</div>
 			</div>
 
-			<BaseTitle title="カテゴリー" />
-			<ul className="grid grid-cols-2 gap-7 mb-20">
+			<BaseTitle title="🧩 カテゴリー選択" />
+			<ul className="grid grid-cols-2 gap-5 mb-10 mt-4">
 				{categories.map((category) => (
 					<Link href={`/category/${category.ID}`} key={category.ID}>
 						<li
