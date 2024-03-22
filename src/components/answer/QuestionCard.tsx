@@ -24,7 +24,10 @@ const Question = ({ question }: { question: Question }) => {
 						<p>{question.QuestionContent}</p>
 					</div>
 					<div className="flex justify-end">
-						<UserCard />
+						<UserCard
+							userName={question.User.Username}
+							isQuestioner={true}
+						/>
 					</div>
 				</div>
 			</div>

@@ -11,27 +11,37 @@ const AnswerCard = ({ answers }: { answers: Answer[] }) => {
 	};
 	const formattedDate = date.toLocaleString("ja-JP", options);
 
-	return (
-		<section>
-			<div className="border border-gray-300 rounded-2xl max-w-3xl mx-auto">
-				<div className="flex flex-col items-start px-5 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
-					<div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
-						<div className="w-full mx-auto">
-							<div className="flex justify-start">
-								<UserCard />
+	const noAnswerFlag = answers.length === 0;
+
+	if (noAnswerFlag) {
+		return <div></div>;
+	} else {
+		return (
+			<section>
+				<div className="border border-gray-300 rounded-2xl max-w-3xl mx-auto">
+					<div className="flex flex-col items-start px-5 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
+						<div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
+							<div className="w-full mx-auto">
+								<div className="flex justify-start"></div>
+								<p className="mb-5">{formattedDate}</p>
+								<p className="mb-5">
+									{answers.map((answer) => (
+										<li>
+											{answer.AnswerContent}
+											<UserCard
+												userName={answer.User.Username}
+												isQuestioner={false}
+											/>
+										</li>
+									))}
+								</p>
 							</div>
-							<p className="mb-5">{formattedDate}</p>
-							<p className="mb-5">
-								{answers.map((answer) => (
-									<li>{answer.AnswerContent}</li>
-								))}
-							</p>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
-	);
+			</section>
+		);
+	}
 };
 
 export default AnswerCard;

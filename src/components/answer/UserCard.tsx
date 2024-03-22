@@ -1,31 +1,30 @@
-import React from 'react';
+import React from "react";
 
-const UserCard = () => {
-  return (
-    <div
-      className="w-56
-     rounded overflow-hidden"
-    >
-      <div className="flex items-center py-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="w-10 h-10 mr-5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-          />
-        </svg>
-
-        <p className="text-gray-700 text-l mb-2">user_name</p>
-      </div>
-    </div>
-  );
+type UserCardProps = {
+	userName: string;
+	isQuestioner: boolean;
+};
+const UserCard: React.FC<UserCardProps> = ({ userName, isQuestioner }) => {
+	return (
+		<div className="rounded overflow-hidden">
+			<div className="flex items-center py-2">
+				{isQuestioner ? (
+					<img
+						className="rounded-full w-9 h-9 mr-3"
+						src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png"
+						alt="回答者のプロフィール画像"
+					/>
+				) : (
+					<img
+						className="rounded-full w-9 h-9 mr-3"
+						src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
+						alt="質問者のプロフィール画像"
+					/>
+				)}
+				<p className="text-gray-700 text-l">{userName}</p>
+			</div>
+		</div>
+	);
 };
 
 export default UserCard;

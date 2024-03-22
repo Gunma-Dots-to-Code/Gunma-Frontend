@@ -2,8 +2,6 @@ import React from "react";
 import QuestionAnswer from "@/components/answer";
 import { GetServerSideProps } from "next";
 
-// fetch data from the server
-
 type QuestionProps = {
 	question: Question;
 	answers: Answer[];
@@ -21,10 +19,11 @@ const QuestionAnswerPage: React.FC<QuestionProps> = ({
 	return <QuestionAnswer question={question} answers={answers} />;
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (content) => {
+	const { categoryId, questionId } = content.params || {};
 	try {
 		const questionResponse = await fetch(
-			"http://localhost:8080/categories/1/questions/1"
+			`http://localhost:8080/categories/${categoryId}/questions/${questionId}`
 		);
 		if (!questionResponse.ok) {
 			throw new Error("Failed to fetch question");
@@ -32,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 		const question: Question = await questionResponse.json();
 
 		const answerResponse = await fetch(
-			"http://localhost:8080/categories/1/questions/1/answers"
+			`http://localhost:8080/categories/${categoryId}}/questions/${questionId}/answers`
 		);
 		if (!answerResponse.ok) {
 			throw new Error("Failed to fetch answer");
