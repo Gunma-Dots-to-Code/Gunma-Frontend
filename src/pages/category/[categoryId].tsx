@@ -17,12 +17,27 @@ const CategoriesPage: React.FC<CategoryQuestionsProps> = ({
 	return (
 		<Layout>
 			<BaseTitle title={categoryName} />
-			<ul className="grid gap-7 grid-cols-1 mt-16">
+			<ul className="grid gap-5 grid-cols-1 mt-16">
 				{questions.map((question) => (
-					<li key={question.ID}>
-						<Link href={`/category/1/question/1`}>
-							{question.QuestionTitle}
-							{question.QuestionContent}
+					<li
+						key={question.ID}
+						className="truncate border px-5 py-5 rounded-md hover:bg-gray-100 transition duration-100 transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg"
+					>
+						<Link
+							href={`/category/${question.CategoryID}/question/${question.ID}`}
+							className="block hover:underline"
+						>
+							<h3 className="text-lg font-semibold">
+								{question.QuestionTitle}
+							</h3>
+							<p className="text-gray-500 text-sm truncate">
+								{question.QuestionContent.length > 40
+									? `${question.QuestionContent.substring(
+											0,
+											40
+									  )}...`
+									: question.QuestionContent}
+							</p>
 						</Link>
 					</li>
 				))}
