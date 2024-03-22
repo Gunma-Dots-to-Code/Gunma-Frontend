@@ -19,9 +19,11 @@ const QuestionItem: React.FC<QuestionItemProps> = ({
 		>
 			<Link
 				href={`/category/${categoryID}/question/${questionID}`}
-				className="block hover:underline"
+				className="block "
 			>
-				<h3 className="text-lg font-semibold">{questionTitle}</h3>
+				<h3 className="text-lg font-semibold hover:underline">
+					{questionTitle}
+				</h3>
 				<p className="text-gray-500 text-sm truncate">
 					{questionContent.length > 40
 						? `${questionContent.substring(0, 40)}...`
