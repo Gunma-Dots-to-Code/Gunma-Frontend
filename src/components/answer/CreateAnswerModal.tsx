@@ -73,12 +73,10 @@ const CreateAnswerModal: React.FC<CreateAnswerModalProps> = ({
           <div className="text-left my-3">
             <h2 className="text-md font-semibold">質問内容</h2>
             <h2 className="text-lg font-semibold mt-3">{questionTitle}</h2>
-            <div>
-              <span className="mt-4 text-gray-800">
-                {questionContent.length > maxContentLength && !contentExpanded
-                  ? `${questionContent.substring(0, maxContentLength)}... `
-                  : questionContent}
-              </span>
+            <p className="mt-4 text-gray-800">
+              {questionContent.length > maxContentLength && !contentExpanded
+                ? `${questionContent.substring(0, maxContentLength)}... `
+                : questionContent}
               {questionContent.length > maxContentLength && (
                 <span
                   onClick={toggleContent}
@@ -87,7 +85,7 @@ const CreateAnswerModal: React.FC<CreateAnswerModalProps> = ({
                   {contentExpanded ? "折りたたむ" : "続きを読む"}
                 </span>
               )}
-            </div>
+            </p>
           </div>
           <form onSubmit={handleSubmit}>
             <textarea
