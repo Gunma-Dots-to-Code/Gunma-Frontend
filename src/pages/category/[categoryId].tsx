@@ -1,3 +1,4 @@
+import BaseTitle from "@/components/common/BaseTitle";
 import Layout from "@/components/common/Layout";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
@@ -8,14 +9,15 @@ const CategoriesPage: React.FC<CategoryQuestionsProps> = ({
 	questions,
 	error,
 }) => {
+	const categoryName = questions[0]?.Category.CategoryName || "";
 	if (error) {
 		return <div>Error: {error}</div>;
 	}
 
 	return (
 		<Layout>
-			<h2>Category</h2>
-			<ul className="grid gap-7 grid-cols-1">
+			<BaseTitle title={categoryName} />
+			<ul className="grid gap-7 grid-cols-1 mt-16">
 				{questions.map((question) => (
 					<li key={question.ID}>
 						<Link href={`/category/1/question/1`}>
