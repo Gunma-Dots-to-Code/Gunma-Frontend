@@ -2,7 +2,7 @@ import { useState } from "react";
 import Layout from "../common/Layout";
 import AnswerCard from "./AnswerCard";
 import Question from "./QuestionCard";
-import CreateAnswerCard from "./CreateAnswerCard";
+import CreateAnswerCard from "./CreateAnswerModal";
 
 const QuestionAnswer = ({
 	question,

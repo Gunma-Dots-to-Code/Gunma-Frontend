@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-type CreateAnswerCardProps = {
+type CreateAnswerModalProps = {
 	questionId: number;
 	questionTitle: string;
 	questionContent: string;
 	categoryId: number;
 	onClose: () => void;
 };
-const CreateAnswerCard: React.FC<CreateAnswerCardProps> = ({
+const CreateAnswerModal: React.FC<CreateAnswerModalProps> = ({
 	questionId,
 	questionTitle,
 	questionContent,
@@ -57,9 +57,11 @@ const CreateAnswerCard: React.FC<CreateAnswerCardProps> = ({
 		>
 			<div className="relative top-20 mx-auto p-5 border w-11/12 md:w-2/3 lg:w-1/2 shadow-lg rounded-md bg-white">
 				<div className="mt-3 text-center">
-					<div className="flex justify-between items-center pb-3">
-						<p className="text-2xl font-bold"></p>
-						<div className="cursor-pointer z-50" onClick={onClose}>
+					<div className="flex justify-end pb-3">
+						<div
+							className="cursor-pointer z-50 text-right"
+							onClick={onClose}
+						>
 							<svg
 								className="fill-current text-black"
 								xmlns="http://www.w3.org/2000/svg"
@@ -120,4 +122,4 @@ const CreateAnswerCard: React.FC<CreateAnswerCardProps> = ({
 	);
 };
 
-export default CreateAnswerCard;
+export default CreateAnswerModal;
