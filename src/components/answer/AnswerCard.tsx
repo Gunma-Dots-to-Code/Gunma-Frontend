@@ -26,7 +26,7 @@ const AnswerCard = ({ answers }: { answers: Answer[] }) => {
 								<p className="mb-5">{formattedDate}</p>
 								<p className="mb-5">
 									{answers.map((answer) => (
-										<li>
+										<li key={answer.ID}>
 											{answer.AnswerContent}
 											<UserCard
 												userName={answer.User.Username}
