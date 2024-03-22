@@ -57,7 +57,7 @@ const CreateAnswerModal: React.FC<CreateAnswerModalProps> = ({
     >
       <div className="relative top-20 mx-auto p-5 border w-11/12 md:w-2/3 lg:w-1/2 shadow-lg rounded-md bg-white">
         <div className="mt-3 text-center">
-          <div className="flex justify-end pb-3">
+          <div className="flex justify-end">
             <div className="cursor-pointer z-50 text-right" onClick={onClose}>
               <svg
                 className="fill-current text-black"
@@ -70,7 +70,7 @@ const CreateAnswerModal: React.FC<CreateAnswerModalProps> = ({
               </svg>
             </div>
           </div>
-          <div className="text-left my-8">
+          <div className="text-left my-3">
             <h2 className="text-md font-semibold">質問内容</h2>
             <h2 className="text-lg font-semibold mt-3">{questionTitle}</h2>
             <div>
@@ -94,10 +94,10 @@ const CreateAnswerModal: React.FC<CreateAnswerModalProps> = ({
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               placeholder="回答をここに入力してください"
-              className="w-full border-2 border-gray-300 p-4 rounded-lg"
+              className="w-full border-2 border-gray-300 p-4 rounded-lg mb-4 mt-4"
               rows={4}
             />
-            <div className="text-right mt-4">
+            <div className="text-right mt-4 flex justify-center">
               <button
                 type="submit"
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
