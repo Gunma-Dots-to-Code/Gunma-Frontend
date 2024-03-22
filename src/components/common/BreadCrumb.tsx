@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const BreadCrumb: React.FC<{}> = ({}) => {
 	return (
-		<nav className="flex mx-auto" aria-label="Breadcrumb">
+		<nav className="flex mx-auto w-full" aria-label="Breadcrumb">
 			<ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse py-4">
 				<li className="inline-flex items-center">
 					<Link

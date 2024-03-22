@@ -1,6 +1,5 @@
 import BaseTitle from "@/components/common/BaseTitle";
 import Header from "@/components/common/Header";
-import Layout from "@/components/common/Layout";
 import QuestionButton from "@/components/common/QuestionButton";
 import QuestionItem, {
 	QuestionItemProps,
