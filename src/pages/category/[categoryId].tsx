@@ -1,6 +1,7 @@
 import Layout from "@/components/common/Layout";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
 const CategoriesPage: React.FC<CategoryQuestionsProps> = ({
@@ -28,11 +29,11 @@ const CategoriesPage: React.FC<CategoryQuestionsProps> = ({
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
 	try {
+		const { categoryId } = context.params || {};
 		const response = await fetch(
-			// TODO: カテゴリーIDをパスから取得する
-			"http://localhost:8080/categories/1/questions"
+			`http://localhost:8080/categories/${categoryId}/questions`
 		);
 		if (!response.ok) {
 			throw new Error("Failed to fetch");

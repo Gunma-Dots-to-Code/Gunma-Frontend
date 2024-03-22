@@ -23,14 +23,14 @@ const CategoriesPage: React.FC<CategoriesProps> = ({ categories, error }) => {
 			</div>
 			<ul className="grid grid-cols-2 gap-7">
 				{categories.map((category) => (
-					<li
-						key={category.ID}
-						className="font-bold border px-6 py-4 rounded-md hover:bg-gray-100 transition duration-100 transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg"
-					>
-						<Link href={`/category/${category.ID}`}>
+					<Link href={`/category/${category.ID}`}>
+						<li
+							key={category.ID}
+							className="font-bold border px-6 py-4 rounded-md hover:bg-gray-100 transition duration-100 transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg"
+						>
 							{category.CategoryName}
-						</Link>
-					</li>
+						</li>
+					</Link>
 				))}
 			</ul>
 		</Layout>
