@@ -15,7 +15,7 @@ const Question = ({ question }: { question: Question }) => {
   return (
     <section>
       <div className="flex flex-col items-start px-5 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8 mt-5">
-        <div className="flex flex-col w-full max-w-3xl mx-auto prose text-left prose-blue">
+        <div className="w-full max-w-2xl mx-auto prose text-left prose-blue">
           <div className="w-full mb-8 mx-auto">
             <h1 className="text-2xl mb-5 font-semibold">
               {question.QuestionTitle}
