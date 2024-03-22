@@ -5,53 +5,53 @@ import { GetServerSideProps } from "next";
 import React from "react";
 
 const CategoriesPage: React.FC<CategoryQuestionsProps> = ({
-	questions,
-	error,
+  questions,
+  error,
 }) => {
-	const categoryName = questions[0]?.Category.CategoryName || "";
-	if (error) {
-		return <div>Error: {error}</div>;
-	}
-	return (
-		<Layout>
-			<BaseTitle title={categoryName} />
-			{questions.length === 0 ? (
-				<div>
-					<BaseTitle title={categoryName} />
-					<p>まだ質問がありません</p>
-				</div>
-			) : (
-				<ul className="grid gap-5 grid-cols-1 mt-16">
-					{questions.map((question) => (
-						<QuestionItem
-							key={question.ID}
-							questionID={question.ID}
-							questionTitle={question.QuestionTitle}
-							questionContent={question.QuestionContent}
-							categoryID={question.CategoryID}
-						/>
-					))}
-				</ul>
-			)}
-		</Layout>
-	);
+  const categoryName = questions[0]?.Category.CategoryName || "";
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+  return (
+    <Layout>
+      <BaseTitle title={categoryName} />
+      {questions.length === 0 ? (
+        <div>
+          <BaseTitle title={categoryName} />
+          <p>まだ質問がありません</p>
+        </div>
+      ) : (
+        <ul className="grid gap-3 grid-cols-1 mt-10">
+          {questions.map((question) => (
+            <QuestionItem
+              key={question.ID}
+              questionID={question.ID}
+              questionTitle={question.QuestionTitle}
+              questionContent={question.QuestionContent}
+              categoryID={question.CategoryID}
+            />
+          ))}
+        </ul>
+      )}
+    </Layout>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-	try {
-		const { categoryId } = context.params || {};
-		const response = await fetch(
-			`http://localhost:8080/categories/${categoryId}/questions`
-		);
-		if (!response.ok) {
-			throw new Error("Failed to fetch");
-		}
-		const questions: Question[] = await response.json();
+  try {
+    const { categoryId } = context.params || {};
+    const response = await fetch(
+      `http://localhost:8080/categories/${categoryId}/questions`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch");
+    }
+    const questions: Question[] = await response.json();
 
-		return { props: { questions } };
-	} catch (error: any) {
-		return { props: { questions: [], error: error.message } };
-	}
+    return { props: { questions } };
+  } catch (error: any) {
+    return { props: { questions: [], error: error.message } };
+  }
 };
 
 export default CategoriesPage;
