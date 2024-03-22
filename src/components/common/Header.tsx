@@ -5,7 +5,6 @@ import NextImage from "next/image";
 const Header = () => {
 	return (
 		<div className="bg-gray-50">
-			{/* TODO: ヘッダーとパンクズリストをw-2xlの左揃えで */}
 			<div className="pt-5 px-6 lg:px-8">
 				<div className="flex items-center justify-between lg:justify-start max-w-2xl mx-auto">
 					<a className="" href="/">
